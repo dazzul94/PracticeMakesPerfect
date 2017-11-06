@@ -1,15 +1,14 @@
-package java100.app;
+package java100.app.control;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class ScoreController {
+import java100.app.domain.Score;
+import java100.app.util.Prompts;
 
-    static Scanner keyScan = new Scanner(System.in);
-
-    private ArrayList<Score> list = new ArrayList<>();
-
+public class ScoreController extends GeneralController<Score>{
+    @Override
     public void execute() {
         loop:
             while (true) {
@@ -23,7 +22,7 @@ public class ScoreController {
                 case "update": this.doUpdate(); break;
                 case "delete": this.doDelete(); break;
                 case "main": break loop;
-                default: 
+                default:  
                     System.out.println("해당 명령이 없습니다.");
                 }
             }

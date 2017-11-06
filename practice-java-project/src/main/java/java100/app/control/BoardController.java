@@ -1,15 +1,15 @@
-package java100.app;
+package java100.app.control;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class BoardController {
+import java100.app.domain.Board;
+import java100.app.util.Prompts;
 
-    static Scanner keyScan = new Scanner(System.in);
-    private ArrayList<Board> list = new ArrayList<>();
-
+public class BoardController extends GeneralController<Board>{
+    @Override
     public void execute() {
         loop:
             while (true) {
@@ -115,7 +115,7 @@ public class BoardController {
         Iterator<Board> iterator = list.iterator();
         while (iterator.hasNext()) {
             Board board = iterator.next();
-            if (board.no == no) {
+            if (board.getNo() == no) {
                 return board;
             }
         }

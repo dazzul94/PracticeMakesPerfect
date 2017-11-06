@@ -74,18 +74,25 @@
  */
 package java100.app;
 
+import java.util.HashMap;
 import java.util.Scanner;
+
+import java100.app.control.BoardController;
+import java100.app.control.GeneralController;
+import java100.app.control.MemberController;
+import java100.app.control.ScoreController;
  
-// 
-// 
+
+
 public class App {
-    
     static Scanner keyScan = new Scanner(System.in);
-    static ScoreController scoreController = new ScoreController();
-    static MemberController memberController = new MemberController();
-    static BoardController boardController = new BoardController();
+    static HashMap<String, GeneralController<?>> controllerMap = new HashMap<>();
     
     public static void main(String[] args) {
+        controllerMap.put("1", new ScoreController());
+        controllerMap.put("2", new MemberController());
+        controllerMap.put("3", new BoardController());
+         
         
         loop:
         while (true) {
@@ -111,14 +118,12 @@ public class App {
     }
     
     private static void doGo(String menuNo) {
-        
-        switch (menuNo) {
-        case "1": scoreController.execute(); break;
-        case "2": memberController.execute(); break;
-        case "3": boardController.execute(); break;
-        default:
-            System.out.println("해당 번호의 메뉴가 없습니다.");
+        GeneralController<?> controller = controllerMap.get(menuNo);
+        if(controller == null) {
+        System.out.println("해당 번호의 메뉴가 없습니다.");
+        return;
         }
+        controller.execute();
         
     }
 

@@ -1,15 +1,14 @@
-package java100.app;
+package java100.app.control;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class MemberController {
+import java100.app.domain.Member;
+import java100.app.util.Prompts;
 
-    static Scanner keyScan = new Scanner(System.in);
-
-    private ArrayList<Member> list = new ArrayList<>();
-
+public class MemberController extends GeneralController<Member>{
+    @Override
     public void execute() {
         loop:
             while (true) {
@@ -125,7 +124,7 @@ private Member findByEmail(String email) {
     Iterator<Member> iterator = list.iterator();
     while (iterator.hasNext()) {
         Member member = iterator.next();
-        if (member.email.equals(email)) {
+        if (member.getEmail().equals(email)) {
             return member;
         }
     }
