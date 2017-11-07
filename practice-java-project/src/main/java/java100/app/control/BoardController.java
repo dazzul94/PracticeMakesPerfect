@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java100.app.domain.Board;
 import java100.app.util.Prompts;
 
-public class BoardController extends GeneralController<Board>{
+public class BoardController extends GeneralController<Board> implements Controller {
     @Override
     public void execute() {
         loop:

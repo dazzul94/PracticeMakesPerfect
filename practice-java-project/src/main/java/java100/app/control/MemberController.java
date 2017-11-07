@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java100.app.domain.Member;
 import java100.app.util.Prompts;
 
-public class MemberController extends GeneralController<Member>{
+public class MemberController extends GeneralController<Member> implements Controller {
     @Override
     public void execute() {
         loop:

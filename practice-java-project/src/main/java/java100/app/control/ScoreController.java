@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java100.app.domain.Score;
 import java100.app.util.Prompts;
 
-public class ScoreController extends GeneralController<Score>{
+public class ScoreController extends GeneralController<Score> implements Controller {
     @Override
     public void execute() {
         loop:
