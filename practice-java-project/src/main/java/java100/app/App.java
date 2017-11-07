@@ -80,6 +80,7 @@ import java.util.Scanner;
 import java100.app.control.BoardController;
 import java100.app.control.GeneralController;
 import java100.app.control.MemberController;
+import java100.app.control.RoomController;
 import java100.app.control.ScoreController;
  
 
@@ -92,7 +93,7 @@ public class App {
         controllerMap.put("1", new ScoreController());
         controllerMap.put("2", new MemberController());
         controllerMap.put("3", new BoardController());
-         
+        controllerMap.put("4", new RoomController()); 
         
         loop:
         while (true) {
