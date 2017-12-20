@@ -24,11 +24,11 @@ public class DispatcherServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         // 클라이언트가 요청한 URL에서 .do를 제외한 
-        // 페이지 컨트롤로의 경로를 추출한다.
-        String pageControllerPath = request.getServletPath().replace(".do", "");
+        // 페이지 컨트롤러의 상대경로를 추출한다.("/board/list.do")
+        String pageControllerPath = request.getServletPath().replace(".do", "");//("/board/list")
         
         // 페이지 컨트롤러 실행을 포함한다.
-        RequestDispatcher rd = request.getRequestDispatcher(pageControllerPath);
+        RequestDispatcher rd = request.getRequestDispatcher(pageControllerPath);// ->BoardListServlet
         rd.include(request, response);
         
         // 페이지 컨트롤러를 실행한 후
