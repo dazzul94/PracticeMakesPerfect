@@ -1,3 +1,4 @@
+package java100.app.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -5,6 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloController {
     @RequestMapping("/hello")
     public String m() {
-        return "hello.jsp";
+        return "/hello.jsp";
     }
 }
