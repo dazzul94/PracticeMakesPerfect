@@ -1,25 +1,30 @@
 package java100.app;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import java.lang.reflect.Method;
+import java.util.List;
 
-@Configuration
+import org.reflections.ReflectionUtils;
+
 public class Test {
 
-    @Bean
-    String getName() {
-        return "Hello";
+    static void m(int a, int b, int c) {
+        
     }
     
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext iocContainer = 
-                new AnnotationConfigApplicationContext(Test.class);
+        String name = "FirstName";
         
-        String[] names = iocContainer.getBeanDefinitionNames();
-        for (String name : names) {
-            System.out.printf("%s => %s\n", name, iocContainer.getBean(name));
-        }
+        String propName = String.format("%c%s", 
+                Character.toLowerCase(name.charAt(0)),
+                name.substring(1));
+        
+        System.out.println(propName);
     }
 
 }
+
+
+
+
+
+
