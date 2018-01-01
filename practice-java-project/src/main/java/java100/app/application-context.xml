@@ -27,15 +27,8 @@
     
     <context:property-placeholder location="java100/app/jdbc.properties"/>
     
-    <!-- DAO 객체를 자동생성해주는 공장 준비 
-         => 다음 객체는 지정된 패키지에서 인터페이스를 찾는다.
-         => 그리고 그 인터페이스와 대응하는 SQL Mapper를 찾아 
-            DAO 객체를 자동으로 생성한다.
-            이때 SQL Mapper 파일의 namespace는 
-            인터페이스의 이름(패키지명 포함)과 일치해야 한다.
-        -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	  <property name="basePackage" value="java100.app" />
+	  <property name="basePackage" value="dao" />
 	</bean>
 </beans>
 
